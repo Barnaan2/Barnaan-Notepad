@@ -1,3 +1,5 @@
+Note pad:
+
 1.each note is an object of type object which has the following properties
           1.name 2.date 3.content 
 2. at the end of the user session this notes should be saved in local storage of the browser
