@@ -37,14 +37,16 @@ const displayFile = () =>{
     savedFiles.forEach(file=>{
         let listItem = document.createElement('li')
        let item =  parentItem.appendChild(listItem)
-       item.innerHTML = file;
+       let name = file.split(" ")
+       item.innerHTML = name[1] ;
        item.className='file';
     });
 
 }
 
 const noteFinder = (item) =>{
-    let note = JSON.parse(localStorage.getItem(item))
+    let itemName = "BarnaanNote " + item
+    let note = JSON.parse(localStorage.getItem(itemName))
     isNew = note;
     input.value = note.content
     
