@@ -76,35 +76,6 @@ items.forEach(item=>{
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.querySelector('button').addEventListener('click',()=>{
 if(isNew){
     if(!input.value){
