@@ -90,32 +90,50 @@
 body
 {
     color: var(--color-teritary);
-  
+    background-color: var(--color-secondary);
     font-family: sans-serif;
-    font-size: var(--font-size-d-m);
     line-height: 1.6;
+    font-size: var(--font-size-d-sc);
+    
 }
 .header{
       
     display: flex;
-flex-direction: column;
-
+  flex-direction: column;
     align-items: center;
-   
     background-color: var(--color-primary);
-    gap: 6rem;
+    gap: 3rem;
 }
 .header--title{
-    
+    margin: 1rem;
+   line-height: 1;
+    color: #32EDB4;
     align-self: flex-start;
     justify-self: flex-start;
 }
-
-
+.header--title span{
+    /* margin: -7rem 1rem; */
+    font-weight: 100;
+   
+padding: 1rem;
+    background-color:white;
+    color: green;
+    font-size: 1.6rem;
+    display: block;
+}
+.header--para{
+   
+    font-weight: 100;
+    margin-bottom: 2rem;
+}
 
 .main{
+    
     display: flex;
-    height: 100vh;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    height: 80vh;
     width: 100vw;
    
 }
@@ -124,17 +142,104 @@ flex-direction: column;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     background-color: var(--color-secondary);
     gap: 2rem;
     padding: 4rem;
 }
+.notebook--title{
+    font-weight: 100;
+    color: #32EDB4;
+    cursor: pointer;
+   
+    position: relative;
+
+}
+.notebook--title::after{
+    position:absolute;
+    font-size: 3rem;
+  content: " ";
+  left: 0;
+  bottom: 0;
+  height: 3px;
+width: 100%;
+transform: scale(0);
+transform-origin: right;
+transition: transform  0.3s ease-in-out;
+background-color: #32EDB4;
+}
+.notebook--title:hover::after{
+    transform: scale(1);
+    transform-origin: left;
+}
+
+.notebook__textarea textarea{
+   border: none;
+   border-radius: 2rem;
+   background-color: gray;
+   color: white;
+   outline: none;
+   padding:var(--padding-d-s-v) var(--padding-d-s-h);
+   font-size: 1.5rem;
+   
+}
+.notebook--mini-title{
+    font-weight: 100;
+    display: none;
+}
+.notebook--button{
+    background-color: #624F82;
+    padding: 1.3rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
 .saved-note{
-    flex-basis: 50%;
+    /* flex-basis: 50%; */
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: var(--color-quaternary);
+background-color: #40636F;
+border-radius: 5px;
     padding: 5rem;
-    gap: 2rem;
+    
+}
+.saved-note--title{
+ cursor: pointer;
+    font-weight: 100;
+    color: #32EDB4;
+    position: relative;
+}
+.saved-note--title::after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+}
+.saved-note__lists{
+    margin: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap :1rem;
+    row-gap: 1rem;
+}
+.saved-note__lists--title{
+    display: flex;
+      flex-basis: 20%;
+    padding: 1rem;
+    background-color: #624F82;
+    position: relative;
+
+}
+
+.saved-note__lists--title::after{
+    position: absolute;
+    content: "sdfsdf";
+    background-color: black;
+    left: 0;
+    right: -6%;
+    bottom: -5%;
+   height: 100%;
+   z-index: -1;
 }

@@ -1,3 +1,4 @@
+
 class Note {
     constructor(name,content){
         this.name = name
@@ -16,7 +17,7 @@ document.getElementById('new').addEventListener('click',()=>{
 const savedFile = ()=>{
     const SavedFiles = new Array()
     for(var i=0; i < localStorage.length; i++){
-     if(localStorage.key(i).includes("BarnaanNote")){
+     if(localStorage.key(i).includes("BarnaanNote ")){
     SavedFiles.push(localStorage.key(i)) }
  }
     return SavedFiles;
@@ -32,14 +33,16 @@ return true;}
 
 // displaying existing files
 const displayFile = () =>{
-    let parentItem = document.querySelector('ul')
+    let parentItem = document.querySelector('.saved-note__lists')
     const savedFiles = savedFile()
     savedFiles.forEach(file=>{
-        let listItem = document.createElement('li')
+        let listItem = document.createElement('p')
        let item =  parentItem.appendChild(listItem)
-       let name = file.split(" ")
+       let name = file.split("BarnaanNote ")
        item.innerHTML = name[1] ;
-       item.className='file';
+
+       // file
+       item.className='saved-note__lists--title';
     });
 
 }
@@ -63,12 +66,13 @@ const selectedFile=(item)=>{
 
 }
 
-let items = document.querySelectorAll('.file')
-document.getElementById('files').addEventListener('click',()=>{
+let items = document.querySelectorAll('.saved-note__lists--title')
+document.querySelector('.saved-note--title').addEventListener('click',()=>{
 if(!items.length){
-    console.log('what is wrong with you?')
+    console.log(items.length)
     displayFile()
-    items = document.querySelectorAll('.file')
+    items = document.querySelectorAll('.saved-note__lists--title')
+    console.log(items.length)
 }
 
 items.forEach(item=>{
@@ -76,7 +80,8 @@ items.forEach(item=>{
 });
 
 
-document.querySelector('button').addEventListener('click',()=>{
+document.querySelector(".notebook--button").addEventListener('click',()=>{
+ 
 if(isNew){
     if(!input.value){
         alert('cannot save empty files')
@@ -94,14 +99,17 @@ else if(!input.value){
     alert('Cannot save empty files')
 
 }
+
 else{
  let userInput = prompt("Note Name ")
 let fileName = "BarnaanNote " + userInput;
 let savedFiles = savedFile();
 if(savedFiles.filter(file=>{return  file == fileName;}).length){
-    alert(`the file name already exists! 
-              please choose another!`)
+    alert(`the file name already exists!  please choose another!`)
 }
+// else if(fileName.includes(" ")){
+    
+// }
 else{
     const newFile = new Note(userInput,input.value)
      let status = save(newFile,fileName);
