@@ -199,7 +199,7 @@ background-color: #32EDB4;
     flex-direction: column;
 background-color: #40636F;
 border-radius: 5px;
-    padding: 5rem;
+   
     
 }
 .saved-note--title{
@@ -218,7 +218,7 @@ border-radius: 5px;
     background-color: gray;
 }
 .saved-note__lists{
-    margin: 5rem;
+    margin: 3rem;
     display: flex;
     flex-wrap: wrap;
     column-gap :1rem;
